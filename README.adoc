@@ -1,0 +1,30 @@
+Introdução workshop sobre http://micronaut.io[Micronaut].
+
+== Requisitos de Software
+
+Para fazer este workshop, você precisa do seguinte:
+
+* Windows com acesso ao shell e o seguinte instalado:
+    - `Java`.
+    - `Grails`.
+    - `Groovy`.
+    - `Git`.
+* JDK 8.
+* Docker. Por favor, puxe as seguintes imagens antes de participar do workshop:
+    - `consul`.
+    - `mongo`.
+
+=== Micronaut CLI
+
+1. Realize o download do Micronaut através do link http://micronaut.io/download.html!] se você não tiver feito isso.
+2. Install Micronaut CLI:
+
+    | Descompacte o binario no seguinte caminho C:/micronaut
+    | Criar a variavel de ambiente MICRONAUT_HOME com o valor C:/micronaut
+    
+
+3. Assegure-se de que o CLI esteja instalado corretamente:
+
+    $ mn --version
+    | Micronaut Version: 1.0.0.M3
+    | JVM Version: 1.8.0_131
