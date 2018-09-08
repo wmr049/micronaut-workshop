@@ -38,3 +38,92 @@ Ao longo deste workshop, estaremos criando um sistema de Gerenciamento de Envio 
 * `fixtures` gerencia todos os mensagens trocadas, armazenando seus dados no MongoDB. Para cada troca de informações, ele não armazena seus detalhes completos, mas sim
   IDENTIDADE. Ele tem um cliente HTTP habilitado para descoberta de serviço para buscar detalhes do clube
   o microservice `mensageria`
+
+== Começando com o Micronaut CLI
+
+O Micronaut CLI é a maneira recomendada de criar novos projetos do Micronaut. o
+O CLI inclui comandos para gerar categorias específicas de projetos, permitindo
+você escolher entre construir ferramentas, testar frameworks e até escolher o idioma
+você deseja usar em seu aplicativo. O CLI também fornece comandos para gerar
+artefatos, como controladores, interfaces de cliente e funções sem servidor.
+
+O comando `create-app` é o ponto de partida para criar aplicações do Micronaut.
+O CLI é baseado no conceito de ** perfis **. Um perfil consiste em um projeto
+modelo (ou esqueleto), recursos opcionais e comandos específicos do perfil. Comandos
+de um perfil normalmente são específicos para o tipo de aplicativo de perfil; por exemplo,
+o perfil `service` (projetado para criação de aplicativos de microserviço) fornece
+os comandos `create-controller` e` create-client`.
+
+=== Listando perfis
+
+Você pode listar os perfis disponíveis com o comando `list-profiles`:
+
+----
+$ mn list-profiles
+| Available Profiles
+--------------------
+* function-aws - O perfil de funções do AWS Lambda
+* function - O perfil da função
+* federation - O perfil da federação
+* service - O perfil de Serviços
+* base - O Perfil Base
+----
+
+DICA: A equipe do Micronaut está trabalhando ativamente em novos perfis e, eventualmente, eles
+esteja disponível.
+
+Aplicativos gerados a partir de um perfil podem ser personalizados com ** features **. Um recurso personaliza ainda mais o projeto recém-criado, adicionando
+dependências para a compilação, mais arquivos para o esqueleto do projeto, etc.
+
+=== Obtendo informações sobre um perfil
+
+Para ver todos os recursos de um perfil, você pode usar o comando `profile-info`:
+
+----
+$ mn profile-info service                                                                                
+| Profile: service
+--------------------
+
+O perfil de serviço
+
+| Provided Commands:
+--------------------
+  create-bean        Creates a singleton bean
+  create-client      Creates a client interface
+  create-controller  Creates a controller and associated test
+  create-job         Creates a job with scheduled method
+  help               Prints help information for a specific command
+
+| Provided Features:
+--------------------
+  annotation-api    Adds Java annotation API
+  config-consul     Adds support for Distributed Configuration with Consul (https://www.consul.io)
+  discovery-consul  Adds support for Service Discovery with Consul (https://www.consul.io)
+  discovery-eureka  Adds support for Service Discovery with Eureka
+  groovy            Creates a Groovy application
+  hibernate-gorm    Adds support for GORM persistence framework
+  hibernate-jpa     Adds support for Hibernate/JPA
+  http-client       Adds support for creating HTTP clients
+  http-server       Adds support for running a Netty server
+  java              Creates a Java application
+  jdbc-dbcp         Configures SQL DataSource instances using Commons DBCP
+  jdbc-hikari       Configures SQL DataSource instances using Hikari Connection Pool
+  jdbc-tomcat       Configures SQL DataSource instances using Tomcat Connection Pool
+  jrebel            Adds support for class reloading with JRebel (requires separate JRebel installation)
+  junit             Adds support for the JUnit testing framework
+  kafka             Adds support for Kafka
+  kotlin            Creates a Kotlin application
+  mongo-gorm        Configures GORM for MongoDB for Groovy applications
+  mongo-reactive    Adds support for the Mongo Reactive Streams Driver
+  neo4j-bolt        Adds support for the Neo4j Bolt Driver
+  neo4j-gorm        Configures GORM for Neo4j for Groovy applications
+  picocli           Adds support for command line parsing (http://picocli.info)
+  redis-lettuce     Configures the Lettuce driver for Redis
+  security-jwt      Adds support for JWT (JSON Web Token) based Authentication
+  security-session  Adds support for Session based Authentication
+  spek              Adds support for the Spek testing framewokr
+  spock             Adds support for the Spock testing framework
+  springloaded      Adds support for class reloading with Spring-Loaded
+  tracing-jaeger    Adds support for distributed tracing with Jaeger (https://www.jaegertracing.io)
+  tracing-zipkin    Adds support for distributed tracing with Zipkin (https://zipkin.io)
+----
