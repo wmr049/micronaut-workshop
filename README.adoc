@@ -28,3 +28,13 @@ Para fazer este workshop, você precisa do seguinte:
     $ mn --version
     | Micronaut Version: 1.0.0.M3
     | JVM Version: 1.8.0_131
+
+== Arquitetura de aplicativos
+
+Ao longo deste workshop, estaremos criando um sistema de Gerenciamento de Envio de Mensagens
+
+* `mensageria` é o microsserviço responsável pelo gerenciamento das mensagens. Ele usa o GORM e
+  Hibernate como uma camada de acesso de dados.
+* `fixtures` gerencia todos os mensagens trocadas, armazenando seus dados no MongoDB. Para cada troca de informações, ele não armazena seus detalhes completos, mas sim
+  IDENTIDADE. Ele tem um cliente HTTP habilitado para descoberta de serviço para buscar detalhes do clube
+  o microservice `mensageria`
